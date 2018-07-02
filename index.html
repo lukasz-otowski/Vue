@@ -1,163 +1,99 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Vue.js - days</title>
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        <style>
-            .linksStyle{
-                text-decoration:none;
-                color:#00a;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>Vue app example - "Days"</h1>
-        <div id="app">
+
+<head>
+    <title>Vue.js - days</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Vue app example - "Days"</h1>
+    <div id="app">
+        <h2>Times basic</h2>
         <!-- "{{}}" this is tool to get data from Vue instance, inside can be variables and functions, etc-->
-            <h3>{{day}}</h3>
-            <p>{{ timeOfDay() }}</p>
+        <p>{{day}}</p>
+        <p>{{ timeOfDay() }}</p>
         <!-- "v-bind" and ":" is handle for Vue instance-->
-            <a v-bind:href="globalTimes" :class="linksStyle"> Global times</a>
-            <div>
-        <!--The event object
+        <a v-bind:href="globalTimes" :class="linksStyle">Link to global times</a>
+        <div>
+            <!--The event object
         in Vue double == "dbl" !!! with "l" at the end-->
-                <button v-on:dblclick="hoursContainer++">Hour + </button>
-                <button v-on:dblclick="hoursContainer--">Hour -</button>
-                <span style="font-size: 150%; font-weight:bold"> - </span>
-                <button v-on:click="changeMinutes(1)">Minutes +</button>
-                <button v-on:click="changeMinutes(-1)">Minutes -</button>
-            </div>
-                <p>Time container {{hoursContainer}}:{{minutesContainer}}</p>
+            <button v-on:dblclick="hoursContainer++">Hour + </button>
+            <button v-on:dblclick="hoursContainer--">Hour -</button>
+            <span style="font-size: 150%; font-weight:bold"> - </span>
+            <button v-on:click="changeMinutes(1)">Minutes +</button>
+            <button v-on:click="changeMinutes(-1)">Minutes -</button>
+        </div>
+        <p>Time container {{hoursContainer}}:{{minutesContainer}}</p>
         <!--Keyboard Events-->
-            <hr>
-                <label>@keyup - event - 
-                    <input type="number" @keyup="showValues">
+        <hr>
+        <h2>Basic settings</h2>
+        <label>@keyup - event - 
+                    <input type="date" @keyup="showValues">
                     <span>result = {{inputValue}}</span>
                 </label>
-            <br>
-                <label>@keypress - event - 
-                    <input type="number" @keypress="showValues2">
+        <br>
+        <label>@keypress - event - 
+                    <input type="time" @keypress="showValues2">
                     <span>result = {{inputValue2}}</span>
                 </label>
-            <br>
-                <span>(type of inputs is "number")</span>
-            <hr>
-                <label>Binding by - v-model:
+        <br>
+        <span>(type of inputs is "number")</span>
+        <hr>
+        <h2>One year</h2>
+        <label>Binding by - v-model:
                     <br>
-                    <span>v-model value above the input - {{vModelValue}}</span>
+                    <span>v-model value above the input - {{vModelValue}} days </span>
                     <br>
-                    <input type="text" v-model="vModelValue">
+                    <input type="range" max="365" v-model="vModelValue">
                     <br>
-                    <span>{{vModelValue}} - v-model value beneath the input</span>
+                    <span>{{vModelValue}} days - v-model value beneath the input</span>
                 </label>
-            <hr>
-            <!-- with event modifiers after dots we can define event call, more precisely-->
-                <button @click.alt="buttonChangeBorder"> alt + click</button>
-                <span> or </span>
-                <button @click.ctrl="buttonChangeBorder"> ctrl + click</button>
-                <span> to add border.</span>
-                <br>
-            <!--"prevent" modifiers define the order of function execution-->
-                <a href="http://www.wikipedia.com" @click.prevent="deleteBorder">Not working (in the deafult meaning) link, click to remove border from button.</a>
-            <hr>
-            <!--"if" condition-->
-                <p v-if="showHide">content, words, article, something </p>
-            <!--and  else-if condition-->
-                <p v-else-if="showHideElse">Else-content, else-words, else-article, else-something</p>
-            <!--button for if and else events-->
-                <button @click="showHideChanger">Change to true/false: {{showHide}}</button>
-                <button @click="showHideElseChanger">Change to true/false: {{showHideElse}}</button>
-            <hr>
-                <h3>Seasons</h3>
-                <p v-for="season in seasons">{{season}}</p>
-                <h3>Months</h3>
-                <div v-for="(month, index) in months">
-                      <p>{{index}} - Name: {{month.name}} - count of days:  {{month.daysCount}} {{months.season}}</p>
-                </div>
-            <hr>
-                <h3>How make Vue cli.</h3>
-                <p>Link to CLI install instructions: <a href="https://www.npmjs.com/package/vue-cli">Vue CLI</a> or do this:</p>
-                <ul>
-                    <li>Install git and check this command to verify "git --version"</li>
-                    <li>Install node.js and check this command to verify "node -v"</li>
-                    <li>Install npm and check this command to verify "npm -v"</li>
-                    <li>Make folder for your projct, and go to it in console</li>
-                    <li>Use command "vue init webpack-simple 'project-name'"</li>
-                    <li>Install npm in your project folder by using "npm install"</li>
-                </ul>
-            <hr>
-                <header><h2>Data from "data()" function</h2></header>
-                <p>{{dataFunctionText}}</p>
+        <hr>
+        <h2>Not idea yet</h2>
+        <!-- with event modifiers after dots we can define event call, more precisely-->
+        <button @click.alt="buttonChangeBorder"> alt + click</button>
+        <span> or </span>
+        <button @click.ctrl="buttonChangeBorder"> ctrl + click</button>
+        <span> to add border.</span>
+        <br>
+        <!--"prevent" modifiers define the order of function execution-->
+        <a href="http://www.wikipedia.com" @click.prevent="deleteBorder">Not working (in the deafult meaning) link, click to remove border from button.</a>
+        <hr>
+        <h2>Not idea yet</h2>
+        <!--"if" condition-->
+        <p v-if="showHide">content, words, article, something </p>
+        <!--and  else-if condition-->
+        <p v-else-if="showHideElse">Else-content, else-words, else-article, else-something</p>
+        <!--button for if and else events-->
+        <button @click="showHideChanger">Change to true/false: {{showHide}}</button>
+        <button @click="showHideElseChanger">Change to true/false: {{showHideElse}}</button>
+        <hr>
+        <h2>Seasons</h2>
+        <p v-for="season in seasons">{{season}}</p>
+        <h2>Months</h2>
+        <div v-for="(month, index) in months">
+            <p>{{index}} - Name: {{month.name}} - count of days: {{month.daysCount}} {{months.season}}</p>
         </div>
-        <script>
-        //basic instance of Vue
-            new Vue({
-                el:"#app",//handler element from html
-                /*data:{//property data to bind data
-                },*/
-                //"data()" function is a better choice than the "data:" property
-                data(){
-                    return{
-                        dataFunctionText:'"data()" function is a better choice than the "data:" property',
-                    day:"Saturday",//data to bind
-                    currentLectureToWatch:"section 3 lecture 19 Nesting Components",//data to bind
-                    testVar:" guys and girls!",
-                    globalTimes:"https://www.timeanddate.com/worldclock/",
-                    linksStyle:["linksStyle"],
-                    hoursContainer:1,
-                    minutesContainer:1,
-                    inputValue:0,
-                    inputValue2:0,
-                    vModelValue:null,
-                    showHide:false,
-                    showHideElse:true,
-                    seasons:["Spring", "Summer","Autumn", "Winter"],
-                    months:[
-                      {name:"January",daysCount:31},
-                      {name:"February",daysCount:"28 / 29"},
-                      {name:"March",daysCount:31},
-                      {name:"April",daysCount:30},
-                      {name:"May",daysCount:31},
-                      {name:"June",daysCount:30},
-                      {name:"July",daysCount:31},
-                      {name:"August",daysCount:31},
-                      {name:"September",daysCount:30},
-                      {name:"October",daysCount:31},
-                      {name:"November",daysCount:30},
-                      {name:"December",daysCount:31}
-                     ]
-                    }
-                },
-                methods:{
-                    timeOfDay(){
-                            return `yo ${this.testVar}`;
-                        },
-                    changeMinutes(quantity){
-                            this.minutesContainer += quantity;
-                        },
-                    showValues(v){
-                            this.inputValue = v.target.value;
-                        },
-                    showValues2(v2){
-                            this.inputValue2 = v2.target.value;
-                        },
-                    buttonChangeBorder(){
-                            but=document.querySelectorAll("button");//GLOBAL VARIABLE! (sorry I'm lazy)
-                            but[4].style.border="2px solid green";
-                            but[5].style.border="2px solid green";
-                        },
-                    deleteBorder(){
-                            but[4].style.border="none";
-                            but[5].style.border="none";
-                        },
-                    showHideChanger(){
-                            this.showHide = !this.showHide;
-                        },
-                    showHideElseChanger(){
-                            this.showHideElse = !this.showHideElse;
-                        }
-                    }
-            })
-        </script>
-    </body>
+        <hr>
+        <h2>How make Vue cli.</h2>
+        <p>Link to CLI install instructions: <a href="https://www.npmjs.com/package/vue-cli">Vue CLI</a> or do this:</p>
+        <ul>
+            <li>Install git and check this command to verify "git --version"</li>
+            <li>Install node.js and check this command to verify "node -v"</li>
+            <li>Install npm and check this command to verify "npm -v"</li>
+            <li>Make folder for your projct, and go to it in console</li>
+            <li>Use command "vue init webpack-simple 'project-name'"</li>
+            <li>Install npm in your project folder by using "npm install"</li>
+        </ul>
+        <hr>
+        <header>
+            <h2>Data from "data()" function</h2>
+        </header>
+        <p>{{dataFunctionText}}</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+
 </html>

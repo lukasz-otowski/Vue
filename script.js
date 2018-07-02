@@ -86,8 +86,8 @@ new Vue({
         },
         buttonChangeBorder() {
             but = document.querySelectorAll("button"); //GLOBAL VARIABLE! (sorry I'm lazy)
-            but[4].style.border = "5px solid green";
-            but[5].style.border = "5px solid green";
+            but[4].style.border = "5px solid white";
+            but[5].style.border = "5px solid white";
         },
         deleteBorder() {
             but[4].style.border = "none";

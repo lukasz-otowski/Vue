@@ -13,3 +13,18 @@ a{
 h2{
     color: #afa;
 }
+
+button{
+    background: #282;
+    color: #000;
+}
+a,span,p,label,input{
+    margin-left: 20px;
+}
+hr{
+    background: #0a0;
+    color: #0a0;
+    border: none;
+    border-left: 10px solid #0f0;
+    height: 5px;
+}

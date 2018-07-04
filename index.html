@@ -19,9 +19,10 @@
         <div>
             <!--The event object
         in Vue double == "dbl" !!! with "l" at the end-->
+            <p>Two double click buttons and two single click buttons</p>
             <button v-on:dblclick="hoursContainer++">Hour + </button>
             <button v-on:dblclick="hoursContainer--">Hour -</button>
-            <span style="font-size: 150%; font-weight:bold"> - </span>
+            <span style="font-size: 150%; font-weight:bold;"> - </span>
             <button v-on:click="changeMinutes(1)">Minutes +</button>
             <button v-on:click="changeMinutes(-1)">Minutes -</button>
         </div>
@@ -39,7 +40,7 @@
                     <span>result = {{inputValue2}}</span>
                 </label>
         <br>
-        <span>(type of inputs is "number")</span>
+        <span>(type of inputs is "date" and "time")</span>
         <hr>
         <h2>One year</h2>
         <label>Binding by - v-model:

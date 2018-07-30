@@ -1,6 +1,6 @@
 body {
-    background: #004;
-    color: #0ff;
+    background: linear-gradient(to right, #004, #000);
+    color: #0bb;
 }
 
 .linksStyle {
@@ -15,18 +15,29 @@ h2{
 }
 
 button{
-    background: #282;
+    background: #0aa;
     color: #000;
 }
 a,span,p,label,input, button{
     margin-left: 20px;
 }
 hr{
+    display: none;
     background: #0a0;
     color: #0a0;
     border: none;
     border-left: 10px solid #0f0;
     margin-left: 0;
     width: 600px;
+    max-width: 90%;
     height: 4px;
+}
+.section{
+    background: rgba(0, 0, 85, 0.5);
+    -webkit-box-shadow: 0 0 5px 15px rgba(0,0,85,0.5);
+    box-shadow: 0 0 5px 15px rgba(0,0,85,0.5);
+    margin: 50px 0;
+/*    width: 20%;*/
+    min-width: 20%;
+    max-width: 60%;
 }

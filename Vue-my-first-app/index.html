@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Vue.js - days</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Vue app example</h1>
+    <div id="app">
+        <section class="section">
+            <h2>Times basic</h2>
+            <!-- "{{}}" this is tool to get data from Vue instance, inside can be variables and functions, etc-->
+            <p>{{day}}</p>
+            <p>{{ timeOfDay() }}</p>
+            <!-- "v-bind" and ":" is handle for Vue instance-->
+            <a v-bind:href="globalTimes" :class="linksStyle">Link to global times</a>
+            <div>
+                <!--The event object
+                in Vue double == "dbl" !!! with "l" at the end-->
+                <p>Two double click buttons and two single click buttons</p>
+                <button v-on:dblclick="hoursContainer++">Hour + </button>
+                <button v-on:dblclick="hoursContainer--">Hour -</button>
+                <span style="font-size: 150%; font-weight:bold;"> - </span>
+                <button v-on:click="changeMinutes(1)">Minutes +</button>
+                <button v-on:click="changeMinutes(-1)">Minutes -</button>
+            </div>
+            <p>Time container {{hoursContainer}}:{{minutesContainer}}</p>
+        </section>
+        <hr>
+        <!--Keyboard Events-->
+        <section class="section">
+            <h2>Basic settings</h2>
+            <label>@keyup - event - 
+                            <input type="date" @keyup="showValues">
+                            <span>result = {{inputValue}}</span>
+                        </label>
+            <br>
+            <label>@keypress - event - 
+                            <input type="time" @keypress="showValues2">
+                            <span>result = {{inputValue2}}</span>
+                        </label>
+            <br>
+            <span>(type of inputs is "date" and "time")</span>
+        </section>
+        <hr>
+        <section class="section">
+            <h2>One year</h2>
+            <label>Binding by - v-model:
+                        <br>
+                        <span>v-model value above the input - {{vModelValue}} days </span>
+                        <br>
+                        <input type="range" max="365" v-model="vModelValue">
+                        <br>
+                        <span>{{vModelValue}} days - v-model value beneath the input</span>
+                    </label>
+        </section>
+        <hr>
+        <section class="section">
+            <h2>Not idea yet</h2>
+            <!-- with event modifiers after dots we can define event call, more precisely-->
+            <button @click.alt="buttonChangeBorder"> alt + click</button>
+            <span> or </span>
+            <button @click.ctrl="buttonChangeBorder"> ctrl + click</button>
+            <span> to add border.</span>
+            <br>
+            <!--"prevent" modifiers define the order of function execution-->
+            <a href="http://www.wikipedia.com" @click.prevent="deleteBorder">Not working (in the deafult meaning) link, click to remove border from button.</a>
+        </section>
+        <hr>
+        <section class="section">
+            <h2>Not idea yet</h2>
+            <!--"if" condition-->
+            <p v-if="showHide">content, words, article, something </p>
+            <!--and  else-if condition-->
+            <p v-else-if="showHideElse">Else-content, else-words, else-article, else-something</p>
+            <!--button for if and else events-->
+            <button @click="showHideChanger">Change to true/false: {{showHide}}</button>
+            <button @click="showHideElseChanger">Change to true/false: {{showHideElse}}</button>
+        </section>
+        <hr>
+        <section class="section">
+            <h2>Seasons</h2>
+            <p v-for="season in seasons">{{season}}</p>
+            <h2>Months</h2>
+            <div v-for="(month, index) in months">
+                <p>{{index}} - Name: {{month.name}} - count of days: {{month.daysCount}} {{months.season}}</p>
+            </div>
+        </section>
+        <hr>
+        <section class="section">
+            <h2>How make Vue cli.</h2>
+            <p>Link to CLI install instructions: <a href="https://www.npmjs.com/package/vue-cli">Vue CLI</a> or do this:</p>
+            <ul>
+                <li>Install git and check this command to verify "git --version"</li>
+                <li>Install node.js and check this command to verify "node -v"</li>
+                <li>Install npm and check this command to verify "npm -v"</li>
+                <li>Make folder for your projct, and go to it in console</li>
+                <li>Use command "vue init webpack-simple 'project-name'"</li>
+                <li>Install npm in your project folder by using "npm install"</li>
+            </ul>
+        </section>
+        <hr>
+        <section class="section">
+            <header>
+                <h2>Data from "data()" function</h2>
+            </header>
+            <p>{{dataFunctionText}}</p>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -13,7 +13,7 @@ This is my first simple app, written with Vue, it contains:
 * event modifiers
 * v-if and v-else-if directive
 
-### Vue-my-first-app
+### list-rendering-The_Other_Brain
 List rendering example app. 
 This app I written for own use, to store information about book called "The Other Brain" by R. Douglas Fields.
 It contains:

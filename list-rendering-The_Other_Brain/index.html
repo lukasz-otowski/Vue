@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+<!--    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+   <script src="vue.js"></script>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Items list</title>
+</head>
+
+<body>
+    <div id="app" class="app">
+        <header>
+            <h1>Book title - <span>{{title}}</span></h1>
+        </header>
+        <em>Change title</em>
+        <!--v-model to dyrektywa do dwukierunkowego wiazania danych-->
+        <input type="text" value="add" v-model="title" />
+        <hr/>
+        <div class="inputGroup">
+
+            <fieldset class="partTitle">
+                <span>Title:</span>
+                <br>
+                <input class="form-control" v-model="newItem" @keyup.enter="addItem" placeholder="Add item" type="text" />
+                <span class="input-group-btn">
+                    <button v-on:click="addItem" class="btn btn-default" type="button">Add</button>
+                </span>
+            </fieldset>
+
+            <div class="pageInput">
+                <label for="page">Page number</label>
+                <br>
+                <input type="number" name="page" min="0" v-model="page">
+            </div>
+
+            <fieldset class="partChoice">
+                <span>Type:</span>
+                <br>
+                <input type="radio" id="one" value="part" v-model="picked">
+                <label for="one">Part</label>
+                <!--                    <br>-->
+                <input type="radio" id="two" value="chapter" v-model="picked">
+                <label for="two">Chapter</label>
+                <!--                    <br>-->
+                <input type="radio" id="two" value="subchapter" v-model="picked">
+                <label for="two">Subchapter</label>
+            </fieldset>
+
+        </div>
+        <hr>
+        <ul>
+            <!--add class 'removed' when item.checked is true, and add 'chapter' when item.chapter = true-->
+            <li v-for="(item, key) in items" v-bind:class="{'readed':item.checked, 'part':item.part=='part', 'chapter':item.part=='chapter', 'subchapter':item.part=='subchapter'}">
+                <span class="remove" @click="removeItem(key)"><img src="rem.png" alt="remove"></span>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="name" value="" v-model="item.checked" />{{item.page}} : {{ item.name}}
+                    </label>
+                </div>
+            </li>
+        </ul>
+        <hr/>
+    </div>
+    <script src="script-fullChapters.js"></script>
+</body>
+
+</html>

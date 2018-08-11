@@ -1,5 +1,5 @@
 var data = {
-    items: [
+    chapters: [
         {
             name: 'Foreword',
             page: 7,
@@ -266,7 +266,7 @@ new Vue({
             }
         },
         removeItem: function (key) {
-            data.items.splice(key, 1);
+            data.chapters.splice(key, 1);
             
         }
     }

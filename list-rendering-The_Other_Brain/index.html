@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8" />
-<!--    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
    <script src="vue.js"></script>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
@@ -16,7 +15,7 @@
             <h1>Book title - <span>{{title}}</span></h1>
         </header>
         <em>Change title</em>
-        <!--v-model to dyrektywa do dwukierunkowego wiazania danych-->
+        <!--v-model is a directive for bidirectional data binding-->
         <input type="text" value="add" v-model="title" />
         <hr/>
         <div class="inputGroup">
@@ -53,7 +52,7 @@
         <hr>
         <ul>
             <!--add class 'removed' when item.checked is true, and add 'chapter' when item.chapter = true-->
-            <li v-for="(item, key) in items" v-bind:class="{'readed':item.checked, 'part':item.part=='part', 'chapter':item.part=='chapter', 'subchapter':item.part=='subchapter'}">
+            <li v-for="(item, key) in chapters" v-bind:class="{'readed':item.checked, 'part':item.part=='part', 'chapter':item.part=='chapter', 'subchapter':item.part=='subchapter'}">
                 <span class="remove" @click="removeItem(key)"><img src="rem.png" alt="remove"></span>
                 <div class="checkbox">
                     <label>
@@ -64,7 +63,7 @@
         </ul>
         <hr/>
     </div>
-    <script src="script.js"></script>
+    <script src="script-fullChapters.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Brainmodoro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        .container{
+/*            background: rgb(0,0,89);*/
+/*                color:#0cc;*/
+            border: 3px solid #311b92;
+            padding: 0 25px 25px 25px;
+            margin-top: 25px;
+        }
+        button {
+            position: relative;
+            border: 3px solid #311b92;
+            padding: 0;
+            width: 50px;
+            height: 50px;
+        }
+
+        button:focus {
+            background-color: #0ff;
+        }
+
+        .material-icons {
+            position: absolute;
+            margin: 10px;
+            top: 0;
+            left: 0;
+        }
+        .well {
+            padding: 25px;
+            font-size: 35px;
+        }
+    </style>
+    <script src="vue.js"></script>
+</head>
+
+<body class=" indigo darken-4">
+
+    <div id="app" class="container blue darken-2">
+        <h2>
+            <span>Brainmodoro</span>
+            <button :disabled="state==='started'" @click="start()">
+                <i class="material-icons">play_circle_filled</i>
+            </button>
+            <button :disabled="state!=='started'" @click="pause()">
+                <i class="material-icons">pause_circle_filled</i>
+            </button>
+            <button :disabled="state!=='started' && state !=='paused' " @click="stop()">
+                <i class="material-icons">stop</i>
+            </button>
+        </h2>
+        <h3>{{title}}</h3>
+        <div class="well">
+            <div class="pomodoro-timer">
+                <span>{{min}}</span>:<span>{{sec}}</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

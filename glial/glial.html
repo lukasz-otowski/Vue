@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Glial cells</title>
+</head>
+
+<body>
+
+    <!--CNS-->
+    <template id="astrocytes">
+        <p>Astrocytes</p>
+    </template>
+
+    <template id="oligodendrocytes">
+        <p>Oligodendrocytes</p>
+    </template>
+
+    <template id="ependymal">
+        <p>Ependymal cells</p>
+    </template>
+
+    <template id="radial">
+        <p>Radial glia</p>
+    </template>
+
+    <!--PNS-->
+    <template id="schwann">
+        <p>Schwann cells</p>
+    </template>
+    <template id="satellite">
+        <p>Satellite cells</p>
+    </template>
+    <template id="enteric">
+        <p>Enteric glial cells</p>
+    </template>
+
+    <!--GROUPED COMPONENTS-->
+    <template id="cns">
+        <div>
+            <h2 class="cns-title">Central Nervous System glial</h2>
+            <div class="cns-content">
+                <astrocytes-component></astrocytes-component>
+                <oligodendrocytes-component></oligodendrocytes-component>
+                <ependymal-component></ependymal-component>
+                <radial-component></radial-component>
+            </div>
+        </div>
+    </template>
+
+    <template id="pns">
+        <div>
+            <h2 class="pns-title">Peripheral Nervous System glial</h2>
+            <div class="pns-content">
+                <schwann-component></schwann-component>
+                <satellite-component></satellite-component>
+                <enteric-component></enteric-component>
+            </div>
+        </div>
+    </template>
+
+    <div id="app">
+        <cns-component></cns-component>
+        <pns-component></pns-component>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script>
+        Vue.component('astrocytes-component', {
+            template: '#astrocytes'
+        });
+        Vue.component('oligodendrocytes-component', {
+            template: '#oligodendrocytes'
+        });
+        Vue.component('ependymal-component', {
+            template: '#ependymal'
+        });
+        Vue.component('radial-component', {
+            template: '#radial'
+        });
+        Vue.component('schwann-component', {
+            template: '#schwann'
+        });
+        Vue.component('satellite-component', {
+            template: '#satellite'
+        });
+        Vue.component('enteric-component', {
+            template: '#enteric'
+        });
+        Vue.component('cns-component', {
+            template: '#cns'
+        });
+        Vue.component('pns-component', {
+            template: '#pns'
+        });
+
+        new Vue({
+            el: "#app"
+        })
+
+    </script>
+</body>
+
+</html>

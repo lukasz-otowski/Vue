@@ -5,7 +5,7 @@ This is my Vue bundle for works, projects, ideas and experiments.
 ## content
 
 ### time
-This is my first simple app, written with Vue.
+This is my first app, written with Vue.
 
 It contains:
 * V-model directive
@@ -40,3 +40,6 @@ It contains:
 * methods
 * computed methods
 * some materializecss framework classes and icons
+
+### glial
+Very simple app what created for fun with Vue components.
